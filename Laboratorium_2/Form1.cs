@@ -17,15 +17,20 @@ namespace Laboratorium_2
         bool ifReverse;
         bool ifControlOn;
 
-        public delegate string ActiveStatus(string activeStatus);
-        private string strStatus(string status) => activeMethodLabel.Text = status;
-
-
         public delegate double Operation(double x);
         private double Square(double x) => x * x;
         private double Root(double x) => Math.Sqrt(x);
         private double Reverse(double x) => 1 / x;
 
+        public delegate void ChangingMethods();
+        private void ChangeBackColor() => BackColor = SystemColors.ActiveCaption;
+        private void ChangeFontColor() => inputBox.ForeColor = Color.Blue;
+        private void ChangeFont() => inputBox.Font = new Font(inputBox.Font.Name, DefaultFont.Size, FontStyle.Italic);
+
+        public delegate void BackToInitialMethods();
+        private void InitialBackColor() => BackColor = SystemColors.InactiveCaption;
+        private void InitialFontColor() => inputBox.ForeColor = DefaultForeColor;
+        private void InitialFont() => inputBox.Font = DefaultFont;
 
         public double[] NumberCollection(double[] tab, Operation op)
         {
@@ -99,10 +104,46 @@ namespace Laboratorium_2
             }
         }
 
+        private void applyButton_Click(object sender, EventArgs e)
+        {
+            ChangingMethods[] additionalMethods = new ChangingMethods[3];
+            additionalMethods[0] = ChangeBackColor;
+            additionalMethods[1] = ChangeFontColor;
+            additionalMethods[2] = ChangeFont;
+
+            BackToInitialMethods[] backToInitialMethods = new BackToInitialMethods[3];
+            backToInitialMethods[0] = InitialBackColor;
+            backToInitialMethods[1] = InitialFontColor;
+            backToInitialMethods[2] = InitialFont;
+            if (backgroundCheck.CheckState == CheckState.Checked)
+            {
+                additionalMethods[0]();
+            }
+            else
+            {
+                backToInitialMethods[0]();
+            }
+            if (fontColorCheck.CheckState == CheckState.Checked)
+            {
+                additionalMethods[1]();
+            }
+            else
+            {
+                backToInitialMethods[1]();
+            }
+            if (fontCheck.CheckState == CheckState.Checked)
+            {
+                additionalMethods[2]();
+            }
+            else
+            {
+                backToInitialMethods[2]();
+            }
+        }
+
         private void squareButton_Click(object sender, EventArgs e)
         {
-            ActiveStatus activeStatus = strStatus;
-            activeStatus("Square");
+            activeMethodLabel.Text = "Square";
             ifSquare = true;
             ifRoot = false;
             ifReverse = false;
@@ -110,8 +151,7 @@ namespace Laboratorium_2
 
         private void rootButton_Click(object sender, EventArgs e)
         {
-            ActiveStatus activeStatus = strStatus;
-            activeStatus("Root");
+            activeMethodLabel.Text = "Root";
             ifRoot = true;
             ifSquare = false;
             ifReverse = false;
@@ -119,8 +159,7 @@ namespace Laboratorium_2
 
         private void reverseButton_Click(object sender, EventArgs e)
         {
-            ActiveStatus activeStatus = strStatus;
-            activeStatus("Reverse");
+            activeMethodLabel.Text = "Reverse";
             ifReverse = true;
             ifSquare = false;
             ifRoot = false;
