@@ -17,10 +17,6 @@ namespace Laboratorium_2
         bool ifReverse;
         bool ifControlOn;
 
-        public delegate string ActiveStatus(string activeStatus);
-        private string strStatus(string status) => activeMethodLabel.Text = status;
-
-
         public delegate double Operation(double x);
         private double Square(double x) => x * x;
         private double Root(double x) => Math.Sqrt(x);
@@ -101,8 +97,6 @@ namespace Laboratorium_2
 
         private void squareButton_Click(object sender, EventArgs e)
         {
-            ActiveStatus activeStatus = strStatus;
-            activeStatus("Square");
             ifSquare = true;
             ifRoot = false;
             ifReverse = false;
@@ -110,8 +104,6 @@ namespace Laboratorium_2
 
         private void rootButton_Click(object sender, EventArgs e)
         {
-            ActiveStatus activeStatus = strStatus;
-            activeStatus("Root");
             ifRoot = true;
             ifSquare = false;
             ifReverse = false;
@@ -119,8 +111,6 @@ namespace Laboratorium_2
 
         private void reverseButton_Click(object sender, EventArgs e)
         {
-            ActiveStatus activeStatus = strStatus;
-            activeStatus("Reverse");
             ifReverse = true;
             ifSquare = false;
             ifRoot = false;
