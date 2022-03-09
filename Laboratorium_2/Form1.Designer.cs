@@ -46,22 +46,22 @@ namespace Laboratorium_2
             this.backgroundCheck = new System.Windows.Forms.CheckBox();
             this.fontColorCheck = new System.Windows.Forms.CheckBox();
             this.fontCheck = new System.Windows.Forms.CheckBox();
+            this.sortButton = new System.Windows.Forms.Button();
+            this.clearInput = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(39, 70);
-            this.inputBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputBox.Location = new System.Drawing.Point(28, 57);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(149, 22);
+            this.inputBox.Size = new System.Drawing.Size(129, 20);
             this.inputBox.TabIndex = 0;
             // 
             // showValueButton
             // 
-            this.showValueButton.Location = new System.Drawing.Point(599, 149);
-            this.showValueButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showValueButton.Location = new System.Drawing.Point(449, 121);
             this.showValueButton.Name = "showValueButton";
-            this.showValueButton.Size = new System.Drawing.Size(151, 28);
+            this.showValueButton.Size = new System.Drawing.Size(129, 23);
             this.showValueButton.TabIndex = 1;
             this.showValueButton.Text = "Show Value";
             this.showValueButton.UseVisualStyleBackColor = true;
@@ -69,10 +69,9 @@ namespace Laboratorium_2
             // 
             // squareButton
             // 
-            this.squareButton.Location = new System.Drawing.Point(315, 70);
-            this.squareButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.squareButton.Location = new System.Drawing.Point(236, 57);
             this.squareButton.Name = "squareButton";
-            this.squareButton.Size = new System.Drawing.Size(151, 28);
+            this.squareButton.Size = new System.Drawing.Size(129, 23);
             this.squareButton.TabIndex = 2;
             this.squareButton.Text = "Square";
             this.squareButton.UseVisualStyleBackColor = true;
@@ -80,10 +79,9 @@ namespace Laboratorium_2
             // 
             // rootButton
             // 
-            this.rootButton.Location = new System.Drawing.Point(315, 149);
-            this.rootButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rootButton.Location = new System.Drawing.Point(236, 121);
             this.rootButton.Name = "rootButton";
-            this.rootButton.Size = new System.Drawing.Size(151, 28);
+            this.rootButton.Size = new System.Drawing.Size(129, 23);
             this.rootButton.TabIndex = 3;
             this.rootButton.Text = "Root";
             this.rootButton.UseVisualStyleBackColor = true;
@@ -91,10 +89,9 @@ namespace Laboratorium_2
             // 
             // reverseButton
             // 
-            this.reverseButton.Location = new System.Drawing.Point(315, 228);
-            this.reverseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reverseButton.Location = new System.Drawing.Point(236, 185);
             this.reverseButton.Name = "reverseButton";
-            this.reverseButton.Size = new System.Drawing.Size(151, 28);
+            this.reverseButton.Size = new System.Drawing.Size(129, 23);
             this.reverseButton.TabIndex = 4;
             this.reverseButton.Text = "Reverse";
             this.reverseButton.UseVisualStyleBackColor = true;
@@ -102,58 +99,52 @@ namespace Laboratorium_2
             // 
             // outputBox
             // 
-            this.outputBox.Location = new System.Drawing.Point(599, 70);
-            this.outputBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.outputBox.Location = new System.Drawing.Point(449, 57);
             this.outputBox.Name = "outputBox";
-            this.outputBox.Size = new System.Drawing.Size(149, 22);
+            this.outputBox.Size = new System.Drawing.Size(129, 20);
             this.outputBox.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(26, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
+            this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Input";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(595, 50);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(446, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Output";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(311, 50);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(233, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 17);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Active method:";
             // 
             // activeMethodLabel
             // 
             this.activeMethodLabel.AutoSize = true;
-            this.activeMethodLabel.Location = new System.Drawing.Point(411, 50);
-            this.activeMethodLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.activeMethodLabel.Location = new System.Drawing.Point(308, 41);
             this.activeMethodLabel.Name = "activeMethodLabel";
-            this.activeMethodLabel.Size = new System.Drawing.Size(20, 17);
+            this.activeMethodLabel.Size = new System.Drawing.Size(16, 13);
             this.activeMethodLabel.TabIndex = 9;
             this.activeMethodLabel.Text = "...";
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(599, 228);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearButton.Location = new System.Drawing.Point(29, 185);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(151, 28);
+            this.clearButton.Size = new System.Drawing.Size(129, 23);
             this.clearButton.TabIndex = 10;
             this.clearButton.Text = "Clear Output";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -163,28 +154,27 @@ namespace Laboratorium_2
             // 
             this.ctrlStatusLabel.AutoSize = true;
             this.ctrlStatusLabel.ForeColor = System.Drawing.Color.Red;
-            this.ctrlStatusLabel.Location = new System.Drawing.Point(105, 373);
-            this.ctrlStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ctrlStatusLabel.Location = new System.Drawing.Point(551, 301);
             this.ctrlStatusLabel.Name = "ctrlStatusLabel";
-            this.ctrlStatusLabel.Size = new System.Drawing.Size(27, 17);
+            this.ctrlStatusLabel.Size = new System.Drawing.Size(21, 13);
             this.ctrlStatusLabel.TabIndex = 11;
             this.ctrlStatusLabel.Text = "Off";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 373);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(498, 301);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 17);
+            this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Ctrl status:";
             // 
             // applyButton
             // 
-            this.applyButton.Location = new System.Drawing.Point(38, 228);
+            this.applyButton.Location = new System.Drawing.Point(29, 296);
+            this.applyButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(149, 28);
+            this.applyButton.Size = new System.Drawing.Size(129, 23);
             this.applyButton.TabIndex = 13;
             this.applyButton.Text = "Apply Changes";
             this.applyButton.UseVisualStyleBackColor = true;
@@ -193,9 +183,10 @@ namespace Laboratorium_2
             // backgroundCheck
             // 
             this.backgroundCheck.AutoSize = true;
-            this.backgroundCheck.Location = new System.Drawing.Point(38, 127);
+            this.backgroundCheck.Location = new System.Drawing.Point(29, 231);
+            this.backgroundCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.backgroundCheck.Name = "backgroundCheck";
-            this.backgroundCheck.Size = new System.Drawing.Size(196, 21);
+            this.backgroundCheck.Size = new System.Drawing.Size(151, 17);
             this.backgroundCheck.TabIndex = 14;
             this.backgroundCheck.Text = "Change Background Color";
             this.backgroundCheck.UseVisualStyleBackColor = true;
@@ -203,9 +194,10 @@ namespace Laboratorium_2
             // fontColorCheck
             // 
             this.fontColorCheck.AutoSize = true;
-            this.fontColorCheck.Location = new System.Drawing.Point(39, 154);
+            this.fontColorCheck.Location = new System.Drawing.Point(30, 253);
+            this.fontColorCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fontColorCheck.Name = "fontColorCheck";
-            this.fontColorCheck.Size = new System.Drawing.Size(183, 21);
+            this.fontColorCheck.Size = new System.Drawing.Size(141, 17);
             this.fontColorCheck.TabIndex = 15;
             this.fontColorCheck.Text = "Change Input Font Color";
             this.fontColorCheck.UseVisualStyleBackColor = true;
@@ -213,19 +205,42 @@ namespace Laboratorium_2
             // fontCheck
             // 
             this.fontCheck.AutoSize = true;
-            this.fontCheck.Location = new System.Drawing.Point(39, 181);
+            this.fontCheck.Location = new System.Drawing.Point(30, 275);
+            this.fontCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fontCheck.Name = "fontCheck";
-            this.fontCheck.Size = new System.Drawing.Size(146, 21);
+            this.fontCheck.Size = new System.Drawing.Size(114, 17);
             this.fontCheck.TabIndex = 16;
             this.fontCheck.Text = "Change Input Font";
             this.fontCheck.UseVisualStyleBackColor = true;
             // 
+            // sortButton
+            // 
+            this.sortButton.Location = new System.Drawing.Point(449, 185);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(129, 23);
+            this.sortButton.TabIndex = 17;
+            this.sortButton.Text = "Sort";
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
+            // clearInput
+            // 
+            this.clearInput.Location = new System.Drawing.Point(29, 121);
+            this.clearInput.Name = "clearInput";
+            this.clearInput.Size = new System.Drawing.Size(129, 23);
+            this.clearInput.TabIndex = 18;
+            this.clearInput.Text = "Clear Input";
+            this.clearInput.UseVisualStyleBackColor = true;
+            this.clearInput.Click += new System.EventHandler(this.clearInput_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(911, 400);
+            this.ClientSize = new System.Drawing.Size(605, 330);
+            this.Controls.Add(this.clearInput);
+            this.Controls.Add(this.sortButton);
             this.Controls.Add(this.fontCheck);
             this.Controls.Add(this.fontColorCheck);
             this.Controls.Add(this.backgroundCheck);
@@ -244,7 +259,6 @@ namespace Laboratorium_2
             this.Controls.Add(this.showValueButton);
             this.Controls.Add(this.inputBox);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Delegaty & Zdarzenia";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -272,6 +286,8 @@ namespace Laboratorium_2
         private System.Windows.Forms.CheckBox backgroundCheck;
         private System.Windows.Forms.CheckBox fontColorCheck;
         private System.Windows.Forms.CheckBox fontCheck;
+        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.Button clearInput;
     }
 }
 
