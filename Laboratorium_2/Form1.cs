@@ -49,7 +49,7 @@ namespace Laboratorium_2
             {
                 for (int j = 1; j < table.Length - i; j++)
                 {
-                    if (Compare(table[j], table[j - 1]))
+                    if (compare(table[j], table[j - 1]))
                     {
                         var AuxTable = table[j];
                         table[j] = table[j - 1];
@@ -156,10 +156,10 @@ namespace Laboratorium_2
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            ChangingMethods[] additionalMethods = new ChangingMethods[3];
-            additionalMethods[0] = ChangeBackColor;
-            additionalMethods[1] = ChangeFontColor;
-            additionalMethods[2] = ChangeFont;
+            ChangingMethods[] changingMethods = new ChangingMethods[3];
+            changingMethods[0] = ChangeBackColor;
+            changingMethods[1] = ChangeFontColor;
+            changingMethods[2] = ChangeFont;
 
             BackToInitialMethods[] backToInitialMethods = new BackToInitialMethods[3];
             backToInitialMethods[0] = InitialBackColor;
@@ -167,7 +167,7 @@ namespace Laboratorium_2
             backToInitialMethods[2] = InitialFont;
             if (backgroundCheck.CheckState == CheckState.Checked)
             {
-                additionalMethods[0]();
+                changingMethods[0]();
             }
             else
             {
@@ -175,7 +175,7 @@ namespace Laboratorium_2
             }
             if (fontColorCheck.CheckState == CheckState.Checked)
             {
-                additionalMethods[1]();
+                changingMethods[1]();
             }
             else
             {
@@ -183,7 +183,7 @@ namespace Laboratorium_2
             }
             if (fontCheck.CheckState == CheckState.Checked)
             {
-                additionalMethods[2]();
+                changingMethods[2]();
             }
             else
             {
