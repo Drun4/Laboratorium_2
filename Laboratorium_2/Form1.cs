@@ -12,10 +12,9 @@ namespace Laboratorium_2
 {
     public partial class Form1 : Form
     {
-        bool ifSquare;
-        bool ifRoot;
-        bool ifReverse;
         bool ifControlOn;
+
+        Operation operations = null;
 
         public delegate double Operation(double x);
         private double Square(double x) => x * x;
@@ -98,23 +97,7 @@ namespace Laboratorium_2
         {
             if (!ifControlOn)
             {
-                Operation[] operations = new Operation[3];
-                operations[0] = Square;
-                operations[1] = Root;
-                operations[2] = Reverse;
-
-                if (ifSquare)
-                {
-                    outputBox.Text = operations[0](double.Parse(inputBox.Text)).ToString();
-                }
-                else if (ifRoot)
-                {
-                    outputBox.Text = operations[1](double.Parse(inputBox.Text)).ToString();
-                }
-                else if (ifReverse)
-                {
-                    outputBox.Text = operations[2](double.Parse(inputBox.Text)).ToString();
-                }
+                outputBox.Text = operations(double.Parse(inputBox.Text)).ToString();
             }
             else if(ifControlOn)
             {
@@ -124,70 +107,53 @@ namespace Laboratorium_2
                 {
                     table[i] = double.Parse(inputs[i]);
                 }
-                if (ifSquare)
+
+                outputBox.Text = "";
+                double[] outputTable = NumberCollection(table, operations);
+                for(int i = 0; i < outputTable.Length; i++)
                 {
-                    outputBox.Text = "";
-                    double[] outputTable = NumberCollection(table, Square);
-                    for(int i = 0; i < outputTable.Length; i++)
-                    {
-                        outputBox.Text += outputTable[i] + " ";
-                    }
-                }
-                else if (ifRoot)
-                {
-                    outputBox.Text = "";
-                    double[] outputTable = NumberCollection(table, Root);
-                    for (int i = 0; i < outputTable.Length; i++)
-                    {
-                        outputBox.Text += outputTable[i] + " ";
-                    }
-                }
-                else if (ifReverse)
-                {
-                    outputBox.Text = "";
-                    double[] outputTable = NumberCollection(table, Reverse);
-                    for (int i = 0; i < outputTable.Length; i++)
-                    {
-                        outputBox.Text += outputTable[i] + " ";
-                    }
+                    outputBox.Text += outputTable[i] + " ";
                 }
             }
         }
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            ChangingMethods[] changingMethods = new ChangingMethods[3];
-            changingMethods[0] = ChangeBackColor;
-            changingMethods[1] = ChangeFontColor;
-            changingMethods[2] = ChangeFont;
+            ChangingMethods changingMethods = null;
+            BackToInitialMethods backToInitialMethods = null;
 
-            BackToInitialMethods[] backToInitialMethods = new BackToInitialMethods[3];
-            backToInitialMethods[0] = InitialBackColor;
-            backToInitialMethods[1] = InitialFontColor;
-            backToInitialMethods[2] = InitialFont;
             if (backgroundCheck.CheckState == CheckState.Checked)
             {
-                changingMethods[0]();
+                changingMethods += ChangeBackColor;
             }
             else
             {
-                backToInitialMethods[0]();
+                backToInitialMethods += InitialBackColor;
             }
             if (fontColorCheck.CheckState == CheckState.Checked)
             {
-                changingMethods[1]();
+                changingMethods += ChangeFontColor;
             }
             else
             {
-                backToInitialMethods[1]();
+                backToInitialMethods += InitialFontColor;
             }
             if (fontCheck.CheckState == CheckState.Checked)
             {
-                changingMethods[2]();
+                changingMethods += ChangeFont;
             }
             else
             {
-                backToInitialMethods[2]();
+                backToInitialMethods += InitialFont;
+            }
+
+            if(changingMethods != null)
+            {
+                changingMethods();
+            }
+            if (backToInitialMethods != null)
+            {
+                backToInitialMethods();
             }
         }
 
@@ -207,25 +173,19 @@ namespace Laboratorium_2
         private void squareButton_Click(object sender, EventArgs e)
         {
             activeMethodLabel.Text = "Square";
-            ifSquare = true;
-            ifRoot = false;
-            ifReverse = false;
+            operations += Square;
         }
 
         private void rootButton_Click(object sender, EventArgs e)
         {
             activeMethodLabel.Text = "Root";
-            ifRoot = true;
-            ifSquare = false;
-            ifReverse = false;
+            operations += Root;
         }
 
         private void reverseButton_Click(object sender, EventArgs e)
         {
             activeMethodLabel.Text = "Reverse";
-            ifReverse = true;
-            ifSquare = false;
-            ifRoot = false;
+            operations += Reverse;
         }
 
         private void clearButton_Click(object sender, EventArgs e)
