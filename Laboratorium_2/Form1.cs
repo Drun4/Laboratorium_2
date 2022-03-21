@@ -51,7 +51,7 @@ namespace Laboratorium_2
                 {
                     if (compare(table[j], table[j - 1]))
                     {
-                        var AuxTable = table[j];
+                        string AuxTable = table[j];
                         table[j] = table[j - 1];
                         table[j - 1] = AuxTable;
                     }
@@ -252,6 +252,27 @@ namespace Laboratorium_2
                 ctrlStatusLabel.Text = "Off";
                 ctrlStatusLabel.ForeColor = Color.Red;
             }
+        }
+        int nr = 0;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            nr++;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button1.Click += button1_Click; 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button1.Click -= button1_Click;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            outputBox.Text = nr.ToString();
         }
     }
 }
