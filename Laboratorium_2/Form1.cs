@@ -13,7 +13,6 @@ namespace Laboratorium_2
     public partial class Form1 : Form
     {
         bool ifControlOn;
-
         Operation operations = null;
 
         public delegate double Operation(double x);
@@ -212,27 +211,6 @@ namespace Laboratorium_2
                 ctrlStatusLabel.Text = "Off";
                 ctrlStatusLabel.ForeColor = Color.Red;
             }
-        }
-        int nr = 0;
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            nr++;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            button1.Click += button1_Click; 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            button1.Click -= button1_Click;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            outputBox.Text = nr.ToString();
         }
     }
 }
