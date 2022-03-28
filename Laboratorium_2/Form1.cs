@@ -40,8 +40,9 @@ namespace Laboratorium_2
             return tab2;
         }
 
-        public delegate bool SortMethods(string s1, string s2);
-        static public string[] BubbleSort(string[] table, SortMethods compare)
+        public delegate bool SortMethods<T>(T s1, T s2);
+
+        static public T[] BubbleSort<T>(T[] table, SortMethods<T> compare)
         {
             for (int i = 0; i < table.Length; i++)
             {
@@ -49,42 +50,32 @@ namespace Laboratorium_2
                 {
                     if (compare(table[j], table[j - 1]))
                     {
-                        string AuxTable = table[j];
+                        var temp = table[j];
                         table[j] = table[j - 1];
-                        table[j - 1] = AuxTable;
+                        table[j - 1] = temp;
                     }
                 }
             }
             return table;
         }
-        static public bool Compare(string s1, string s2)
+
+        static public bool Compare<T>(T s1, T s2) where T : IComparable<T>
         {
-            try
+            if (s1.CompareTo(s2) < 0)
             {
-                double symbol1 = double.Parse(s1);
-                double symbol2 = double.Parse(s2);
-                if (symbol1 < symbol2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
-            catch
+            else
             {
-                char symbol1 = s1[0];
-                char symbol2 = s2[0];
-                if (symbol1 < symbol2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
+            //T temp;
+            //if (s1.CompareTo(s2) > 0)
+            //{
+            //    temp = s1;
+            //    s1 = s2;
+            //    s2 = temp;
+            //}
         }
 
         public Form1()
@@ -118,7 +109,7 @@ namespace Laboratorium_2
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            ChangingMethods changingMethods = null;
+            ChangingMethods changingMethods = null; 
             BackToInitialMethods backToInitialMethods = null;
 
             if (backgroundCheck.CheckState == CheckState.Checked)
@@ -155,13 +146,31 @@ namespace Laboratorium_2
                 backToInitialMethods();
             }
         }
-
-        private void sortButton_Click(object sender, EventArgs e)
+        
+        private void sortDouble_Click(object sender, EventArgs e)
         {
             outputBox.Text = "";
             activeMethodLabel.Text = "";
             string[] sortedTable = inputBox.Text.Split(' ');
-            SortMethods compare = Compare;
+            double[] doubTab = new double[sortedTable.Length];
+            for(int i = 0; i < sortedTable.Length; i++)
+            {
+                doubTab[i] = Convert.ToDouble(sortedTable[i]);
+            }
+            SortMethods<double> compare = Compare;
+            BubbleSort(doubTab, compare);
+            for (int i = 0; i < sortedTable.Length; i++)
+            {
+                outputBox.Text += doubTab[i] + " ";
+            }
+        }
+
+        private void btn_sortString_Click(object sender, EventArgs e)
+        {
+            outputBox.Text = "";
+            activeMethodLabel.Text = "";
+            string[] sortedTable = inputBox.Text.Split(' ');
+            SortMethods<string> compare = Compare;
             BubbleSort(sortedTable, compare);
             for (int i = 0; i < sortedTable.Length; i++)
             {
@@ -174,27 +183,15 @@ namespace Laboratorium_2
             activeMethodLabel.Text = "Square";
             operations += Square;
         }
-
         private void rootButton_Click(object sender, EventArgs e)
         {
             activeMethodLabel.Text = "Root";
             operations += Root;
         }
-
         private void reverseButton_Click(object sender, EventArgs e)
         {
             activeMethodLabel.Text = "Reverse";
             operations += Reverse;
-        }
-
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            outputBox.Text = "";
-        }
-
-        private void clearInput_Click(object sender, EventArgs e)
-        {
-            inputBox.Text = "";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -211,6 +208,11 @@ namespace Laboratorium_2
                 ctrlStatusLabel.Text = "Off";
                 ctrlStatusLabel.ForeColor = Color.Red;
             }
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            inputBox.Text = "";
         }
     }
 }

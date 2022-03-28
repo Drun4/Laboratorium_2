@@ -39,15 +39,15 @@ namespace Laboratorium_2
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.activeMethodLabel = new System.Windows.Forms.Label();
-            this.clearButton = new System.Windows.Forms.Button();
             this.ctrlStatusLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.applyButton = new System.Windows.Forms.Button();
             this.backgroundCheck = new System.Windows.Forms.CheckBox();
             this.fontColorCheck = new System.Windows.Forms.CheckBox();
             this.fontCheck = new System.Windows.Forms.CheckBox();
-            this.sortButton = new System.Windows.Forms.Button();
-            this.clearInput = new System.Windows.Forms.Button();
+            this.btn_sortDouble = new System.Windows.Forms.Button();
+            this.btn_sortString = new System.Windows.Forms.Button();
+            this.btn_Clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputBox
@@ -140,21 +140,11 @@ namespace Laboratorium_2
             this.activeMethodLabel.TabIndex = 9;
             this.activeMethodLabel.Text = "...";
             // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(29, 185);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(129, 23);
-            this.clearButton.TabIndex = 10;
-            this.clearButton.Text = "Clear Output";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
             // ctrlStatusLabel
             // 
             this.ctrlStatusLabel.AutoSize = true;
             this.ctrlStatusLabel.ForeColor = System.Drawing.Color.Red;
-            this.ctrlStatusLabel.Location = new System.Drawing.Point(551, 301);
+            this.ctrlStatusLabel.Location = new System.Drawing.Point(557, 258);
             this.ctrlStatusLabel.Name = "ctrlStatusLabel";
             this.ctrlStatusLabel.Size = new System.Drawing.Size(21, 13);
             this.ctrlStatusLabel.TabIndex = 11;
@@ -163,7 +153,7 @@ namespace Laboratorium_2
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(498, 301);
+            this.label4.Location = new System.Drawing.Point(495, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 12;
@@ -171,10 +161,10 @@ namespace Laboratorium_2
             // 
             // applyButton
             // 
-            this.applyButton.Location = new System.Drawing.Point(29, 296);
+            this.applyButton.Location = new System.Drawing.Point(29, 185);
             this.applyButton.Margin = new System.Windows.Forms.Padding(2);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(129, 23);
+            this.applyButton.Size = new System.Drawing.Size(130, 23);
             this.applyButton.TabIndex = 13;
             this.applyButton.Text = "Apply Changes";
             this.applyButton.UseVisualStyleBackColor = true;
@@ -183,7 +173,7 @@ namespace Laboratorium_2
             // backgroundCheck
             // 
             this.backgroundCheck.AutoSize = true;
-            this.backgroundCheck.Location = new System.Drawing.Point(29, 231);
+            this.backgroundCheck.Location = new System.Drawing.Point(29, 121);
             this.backgroundCheck.Margin = new System.Windows.Forms.Padding(2);
             this.backgroundCheck.Name = "backgroundCheck";
             this.backgroundCheck.Size = new System.Drawing.Size(151, 17);
@@ -194,7 +184,7 @@ namespace Laboratorium_2
             // fontColorCheck
             // 
             this.fontColorCheck.AutoSize = true;
-            this.fontColorCheck.Location = new System.Drawing.Point(30, 253);
+            this.fontColorCheck.Location = new System.Drawing.Point(30, 143);
             this.fontColorCheck.Margin = new System.Windows.Forms.Padding(2);
             this.fontColorCheck.Name = "fontColorCheck";
             this.fontColorCheck.Size = new System.Drawing.Size(141, 17);
@@ -205,7 +195,7 @@ namespace Laboratorium_2
             // fontCheck
             // 
             this.fontCheck.AutoSize = true;
-            this.fontCheck.Location = new System.Drawing.Point(30, 275);
+            this.fontCheck.Location = new System.Drawing.Point(30, 165);
             this.fontCheck.Margin = new System.Windows.Forms.Padding(2);
             this.fontCheck.Name = "fontCheck";
             this.fontCheck.Size = new System.Drawing.Size(114, 17);
@@ -213,41 +203,51 @@ namespace Laboratorium_2
             this.fontCheck.Text = "Change Input Font";
             this.fontCheck.UseVisualStyleBackColor = true;
             // 
-            // sortButton
+            // btn_sortDouble
             // 
-            this.sortButton.Location = new System.Drawing.Point(449, 185);
-            this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(129, 23);
-            this.sortButton.TabIndex = 17;
-            this.sortButton.Text = "Sort";
-            this.sortButton.UseVisualStyleBackColor = true;
-            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            this.btn_sortDouble.Location = new System.Drawing.Point(30, 248);
+            this.btn_sortDouble.Name = "btn_sortDouble";
+            this.btn_sortDouble.Size = new System.Drawing.Size(129, 23);
+            this.btn_sortDouble.TabIndex = 17;
+            this.btn_sortDouble.Text = "Sort Double";
+            this.btn_sortDouble.UseVisualStyleBackColor = true;
+            this.btn_sortDouble.Click += new System.EventHandler(this.sortDouble_Click);
             // 
-            // clearInput
+            // btn_sortString
             // 
-            this.clearInput.Location = new System.Drawing.Point(29, 121);
-            this.clearInput.Name = "clearInput";
-            this.clearInput.Size = new System.Drawing.Size(129, 23);
-            this.clearInput.TabIndex = 18;
-            this.clearInput.Text = "Clear Input";
-            this.clearInput.UseVisualStyleBackColor = true;
-            this.clearInput.Click += new System.EventHandler(this.clearInput_Click);
+            this.btn_sortString.Location = new System.Drawing.Point(236, 248);
+            this.btn_sortString.Name = "btn_sortString";
+            this.btn_sortString.Size = new System.Drawing.Size(129, 23);
+            this.btn_sortString.TabIndex = 18;
+            this.btn_sortString.Text = "Sort String";
+            this.btn_sortString.UseVisualStyleBackColor = true;
+            this.btn_sortString.Click += new System.EventHandler(this.btn_sortString_Click);
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(449, 185);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(129, 23);
+            this.btn_Clear.TabIndex = 19;
+            this.btn_Clear.Text = "Clear Input";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(605, 330);
-            this.Controls.Add(this.clearInput);
-            this.Controls.Add(this.sortButton);
+            this.ClientSize = new System.Drawing.Size(605, 292);
+            this.Controls.Add(this.btn_Clear);
+            this.Controls.Add(this.btn_sortString);
+            this.Controls.Add(this.btn_sortDouble);
             this.Controls.Add(this.fontCheck);
             this.Controls.Add(this.fontColorCheck);
             this.Controls.Add(this.backgroundCheck);
             this.Controls.Add(this.applyButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ctrlStatusLabel);
-            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.activeMethodLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -279,15 +279,15 @@ namespace Laboratorium_2
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label activeMethodLabel;
-        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label ctrlStatusLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button applyButton;
         private System.Windows.Forms.CheckBox backgroundCheck;
         private System.Windows.Forms.CheckBox fontColorCheck;
         private System.Windows.Forms.CheckBox fontCheck;
-        private System.Windows.Forms.Button sortButton;
-        private System.Windows.Forms.Button clearInput;
+        private System.Windows.Forms.Button btn_sortDouble;
+        private System.Windows.Forms.Button btn_sortString;
+        private System.Windows.Forms.Button btn_Clear;
     }
 }
 
